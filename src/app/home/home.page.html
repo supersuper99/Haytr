@@ -1,20 +1,31 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Matches</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-card *ngFor="let match of matches">
+    <ion-card-header>
+      <ion-card-title>{{ match.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150" alt="User Photo">
+      </ion-avatar>
+      <ion-list>
+        <ion-item *ngFor="let hatedThing of match.hatedThings">
+          {{ hatedThing }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-button fill="outline" (click)="dislike(match)">Dislike</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button fill="outline" (click)="like(match)">Like</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
