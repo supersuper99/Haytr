@@ -1,0 +1,7 @@
+{
+  "name": "Haytr",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
