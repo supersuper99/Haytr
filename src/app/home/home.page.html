@@ -1,31 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Matches</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let match of matches">
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>{{ match.name }}</ion-card-title>
+      <ion-card-title>{{ currentProfile.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-avatar>
-        <img src="https://via.placeholder.com/150" alt="User Photo">
-      </ion-avatar>
-      <ion-list>
-        <ion-item *ngFor="let hatedThing of match.hatedThings">
-          {{ hatedThing }}
-        </ion-item>
-      </ion-list>
+      {{ currentProfile.description }}
     </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <ion-button fill="outline" (click)="dislike(match)">Dislike</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button fill="outline" (click)="like(match)">Like</ion-button>
-      </ion-col>
-    </ion-row>
   </ion-card>
+  <ion-button (click)="like()">Like</ion-button>
+  <ion-button (click)="dislike()">Dislike</ion-button>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="goToMatches()">Matches</ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
