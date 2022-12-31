@@ -53,7 +53,7 @@ export class LoginSignupPage implements OnInit {
     }
     try {
       const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
-      firebase.firestore().doc(`users/${user.user.uid}`).set({
+      firebase.firestore().doc(`users/${user.user?.uid}`).set({
         email,
         hatedThings,
         gender,
